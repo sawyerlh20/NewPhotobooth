@@ -85,17 +85,17 @@
 #define BOARD_PRN_BAUD            115200
 
 /* ---- Display: Adafruit 1.8" 160x128 TFT (ST7735R, SPI) ------------------- */
-#define BOARD_TFT_SSI_PERIPH      SYSCTL_PERIPH_SSI1
-#define BOARD_TFT_SSI_BASE        SSI1_BASE
-#define BOARD_TFT_SPI_PERIPH      SYSCTL_PERIPH_SSI1
-#define BOARD_TFT_SPI_BASE        SSI1_BASE
-#define BOARD_TFT_SCK_PIN         GPIO_PIN_2
-#define BOARD_TFT_MOSI_PIN        /* TODO */
-#define BOARD_TFT_SCK_MUX         GPIO_PF2_SSI1CLK
-#define BOARD_TFT_MOSI_MUX        /* TODO */
-#define BOARD_TFT_CS_PIN          /* TODO */
+#define BOARD_TFT_SSI_PERIPH      SYSCTL_PERIPH_SSI3
+#define BOARD_TFT_SSI_BASE        SSI3_BASE
+#define BOARD_TFT_SPI_PERIPH      SYSCTL_PERIPH_SSI3
+#define BOARD_TFT_SPI_BASE        SSI3_BASE
+#define BOARD_TFT_SCK_PIN         GPIO_PIN_0
+#define BOARD_TFT_MOSI_PIN        GPIO_PIN_3
+#define BOARD_TFT_SCK_MUX         GPIO_PD0_SSI3CLK
+#define BOARD_TFT_MOSI_MUX        GPIO_PD3_SSI3TX
+#define BOARD_TFT_CS_PIN          GPIO_PIN_1
 #define BOARD_TFT_DC_PIN          /* TODO */
-#define BOARD_TFT_RST_PERIPH      /* TODO */
+#define BOARD_TFT_RST_PERIPH      SYSCTL_PERIPH_GPIOC
 #define BOARD_TFT_RST_BASE        /* TODO */
 #define BOARD_TFT_RST_PIN         /* TODO */
 #define BOARD_TFT_SPI_HZ          /* TODO */

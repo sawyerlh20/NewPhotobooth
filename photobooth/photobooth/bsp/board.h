@@ -101,14 +101,14 @@
 #define BOARD_TFT_SPI_HZ          /* TODO */
 
 /* ---- Buttons (on-board SW1/SW2) ------------------------------------------ */
-#define BOARD_BTN_PERIPH          /* TODO */
-#define BOARD_BTN_BASE            /* TODO */
-#define BOARD_BTN_SW1_PIN         /* TODO */
-#define BOARD_BTN_SW2_PIN         /* TODO */
+#define BOARD_BTN_PERIPH          SYSCTL_PERIPH_GPIOE
+#define BOARD_BTN_BASE            GPIO_PORTE_BASE
+#define BOARD_BTN_SW1_PIN         GPIO_PIN_2
+#define BOARD_BTN_SW2_PIN         GPIO_PIN_3
 
 /* ---- LEDs ---------------------------------------------------------------- */
-#define BOARD_LED_PERIPH          /* TODO */
-#define BOARD_LED_BASE            /* TODO */
-#define BOARD_LED_RED_PIN         /* TODO */
+#define BOARD_LED_PERIPH          SYSCTL_PERIPH_GPIOA
+#define BOARD_LED_BASE            GPIO_PORTA_BASE
+#define BOARD_LED_RED_PIN         GPIO_PIN_0
 
 #endif /* BOARD_H */

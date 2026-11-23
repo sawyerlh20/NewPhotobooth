@@ -50,7 +50,7 @@
 #define BOARD_DEBUG_UART_BAUD     115200
 
 /* ---- Camera: I2C control bus --------------------------------------------- */
-#define BOARD_CAM_I2C_PERIPH      SYSCTL_PERIPH_I2C1
+#define BOARD_CAM_I2C_PERIPH      SYSCTL_PERIPH_I2C1   // Using port B with proper muxes
 #define BOARD_CAM_I2C_BASE        I2C1_BASE
 #define BOARD_CAM_I2C_GPIO_PERIPH SYSCTL_PERIPH_GPIOB
 #define BOARD_CAM_I2C_GPIO_BASE   GPIO_PORTB_BASE
@@ -62,19 +62,19 @@
 /* ---- Camera: pixel bus ---------------------------------------------------
  * Hint: the camera driver reads D0..D3 as the low 4 bits of ONE GPIO port,
  * and PCLK must be on a pin whose port can trigger a uDMA transfer.        */
-#define BOARD_CAM_DATA_PERIPH     SYSCTL_PERIPH_GPIOE
-#define BOARD_CAM_DATA_BASE       GPIO_PORTE_BASEE
-#define BOARD_CAM_D_MASK          0xF
+#define BOARD_CAM_DATA_PERIPH     SYSCTL_PERIPH_GPIOE // Using port E
+#define BOARD_CAM_DATA_BASE       GPIO_PORTE_BASE
+#define BOARD_CAM_D_MASK          0xF                 // 0xF = 15 = 01111 for first 4 bits
 #define BOARD_CAM_PCLK_PIN        GPIO_PIN_4
 #define BOARD_CAM_HREF_PIN        GPIO_PIN_5
 
 /* ---- Camera: frame sync -------------------------------------------------- */
-#define BOARD_CAM_VSYNC_PERIPH    SYSCTL_PERIPH_GPIOF
+#define BOARD_CAM_VSYNC_PERIPH    SYSCTL_PERIPH_GPIOF // Using port F
 #define BOARD_CAM_VSYNC_BASE      GPIO_PORTF_BASE
 #define BOARD_CAM_VSYNC_PIN       GPIO_PIN_4
 
 /* ---- Printer: MC582H (UART) ---------------------------------------------- */
-#define BOARD_PRN_UART_PERIPH     SYSCTL_PERIPH_UART1
+#define BOARD_PRN_UART_PERIPH     SYSCTL_PERIPH_UART1 // Using port B with muxes
 #define BOARD_PRN_UART_BASE       UART1_BASE
 #define BOARD_PRN_GPIO_PERIPH     SYSCTL_PERIPH_GPIOB
 #define BOARD_PRN_GPIO_BASE       GPIO_PORTB_BASE
@@ -82,23 +82,23 @@
 #define BOARD_PRN_TX_PIN          GPIO_PIN_1
 #define BOARD_PRN_RX_MUX          GPIO_PB0_U1RX
 #define BOARD_PRN_TX_MUX          GPIO_PB1_U1TX
-#define BOARD_PRN_BAUD            115200
+#define BOARD_PRN_BAUD            115200              // This is a educated guess
 
 /* ---- Display: Adafruit 1.8" 160x128 TFT (ST7735R, SPI) ------------------- */
-#define BOARD_TFT_SSI_PERIPH      SYSCTL_PERIPH_SSI3
+#define BOARD_TFT_SSI_PERIPH      SYSCTL_PERIPH_SSI3  // So I'm using port D but nowhere does it ask me to specify
 #define BOARD_TFT_SSI_BASE        SSI3_BASE
 #define BOARD_TFT_SPI_PERIPH      SYSCTL_PERIPH_SSI3
 #define BOARD_TFT_SPI_BASE        SSI3_BASE
-#define BOARD_TFT_SCK_PIN         GPIO_PIN_0
+#define BOARD_TFT_SCK_PIN         GPIO_PIN_0          // Proper pins
 #define BOARD_TFT_MOSI_PIN        GPIO_PIN_3
 #define BOARD_TFT_SCK_MUX         GPIO_PD0_SSI3CLK
 #define BOARD_TFT_MOSI_MUX        GPIO_PD3_SSI3TX
-#define BOARD_TFT_CS_PIN          GPIO_PIN_1
-#define BOARD_TFT_DC_PIN          /* TODO */
+#define BOARD_TFT_CS_PIN          GPIO_PIN_1         // PD1*
+#define BOARD_TFT_DC_PIN          GPIO_PIN_4         // PD4*
 #define BOARD_TFT_RST_PERIPH      SYSCTL_PERIPH_GPIOC
-#define BOARD_TFT_RST_BASE        /* TODO */
-#define BOARD_TFT_RST_PIN         /* TODO */
-#define BOARD_TFT_SPI_HZ          /* TODO */
+#define BOARD_TFT_RST_BASE        GPIO_PORTC_BASE
+#define BOARD_TFT_RST_PIN         GPIO_PIN_0
+#define BOARD_TFT_SPI_HZ          80_000_000_000     // Educated guess
 
 /* ---- Buttons (on-board SW1/SW2) ------------------------------------------ */
 #define BOARD_BTN_PERIPH          SYSCTL_PERIPH_GPIOE
